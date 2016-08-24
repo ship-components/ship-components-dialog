@@ -10,3 +10,8 @@
 .controls {
   margin-bottom:  calc($base-grid-size * -3);
 }
+
+.container {
+  width: 360px;
+  line-height: 1.618;
+}
