@@ -1,0 +1,12 @@
+.columnGroup {
+  display: flex;
+}
+
+.column {
+  flex-grow: 1;
+  justify-content: flex-start;
+}
+
+.controls {
+  margin-bottom:  calc($base-grid-size * -3);
+}
