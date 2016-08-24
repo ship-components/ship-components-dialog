@@ -2,7 +2,7 @@
   "name": "ship-components-dialog",
   "version": "0.1.0",
   "description": "React material design modals",
-  "main": "dialog.js",
+  "main": "src/index.js",
   "scripts": {
     "start": "grunt server",
     "build": "grunt build",
