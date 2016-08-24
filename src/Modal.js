@@ -86,7 +86,6 @@ export default class Modal extends React.Component {
   render() {
     return (
       <div
-        ref='popup'
         className={css.overlay}
         style={this.props.style}
         onMouseDown={this.handleClickBackground}

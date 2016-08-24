@@ -62,8 +62,11 @@ export class ModelStore extends EventEmitter {
     this._state = state;
 
     if (changed) {
-      // Let the world know
-      this.emit('change');
+      // Delay until next loop to let react finish it's life cycles
+      setTimeout(()=>{
+        // Let the world know
+        this.emit('change');
+      }, 0);
     }
   }
 
