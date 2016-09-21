@@ -11,7 +11,7 @@ import dialog from './Dialog';
 import alert from './Alert';
 import confirm from './Confirm';
 
-export const Model = modal;
+export const Modal = modal;
 export const Modals = modals;
 export const ModalActions = modalActions;
 export const ModalStore = modalStore;
