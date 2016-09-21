@@ -1,6 +1,6 @@
 {
   "name": "ship-components-dialog",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "React material design modals",
   "main": "src/index.js",
   "scripts": {
@@ -31,6 +31,11 @@
     "url": "https://github.com/ship-components/ship-components-dialog/issues"
   },
   "homepage": "https://github.com/ship-components/ship-components-dialog#readme",
+  "dependencies": {
+    "ship-components-buttons": "^0.1.1",
+    "ship-components-highlight-click": "^0.1.5",
+    "ship-components-icon": "^0.1.0"
+  },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
     "babel": "^6.5.2",
@@ -64,9 +69,6 @@
     "react": "^15.3.1",
     "react-addons-test-utils": "^15.3.1",
     "react-dom": "^15.3.1",
-    "ship-components-buttons": "^0.1.1",
-    "ship-components-highlight-click": "^0.1.5",
-    "ship-components-icon": "^0.1.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.15.0"
