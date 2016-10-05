@@ -8,6 +8,7 @@
 // Modules
 import React, {Component, PropTypes} from 'react';
 import classNames from 'classnames';
+import css from './Modals.css';
 
 export default class Modals extends Component {
   /**
@@ -20,9 +21,20 @@ export default class Modals extends Component {
     }
     return (
       <div
-        className={classNames(this.props.className)}
+        className={classNames(css.container, this.props.className)}
       >
-        {this.props.modals[0]}
+        {this.props.modals.map((modal, index) => {
+          return (
+            <div
+              className={classNames(css.item, {
+                [css.inactive] : index !== (this.props.modals.length - 1)
+              })}
+              key={modal.key}
+            >
+              {modal}
+            </div>
+          );
+        })}
       </div>
     );
   }
