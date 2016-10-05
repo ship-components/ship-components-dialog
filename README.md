@@ -140,6 +140,7 @@ Below are is a sample of how to setup the loaders:
 2. `npm test`
 
 ## History
+0.2.0 - Allowed multiple modals at the same time
 0.1.2 - Fixed a spelling error
 0.1.1 - Moved ship-components-* to dependencies
 0.1.0 - Initial
