@@ -1,6 +1,6 @@
 {
   "name": "ship-components-dialog",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "React material design modals",
   "main": "src/index.js",
   "scripts": {

@@ -18,6 +18,7 @@ export default class Confirm extends Dialog {
       },
       {
         label: this.props.confirm,
+        disabled: this.props.disableConfirm,
         onClick: this.props.onConfirm
       }
     ];

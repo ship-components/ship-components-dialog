@@ -31,7 +31,8 @@
 }
 
 .Modal--body {
-  padding: 20px 40px 56px;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .Modal--body h1 {
@@ -79,6 +80,24 @@
   font-weight: 100;
   border-radius: 2px 2px 0 0;
 }
+.Modals--inactive {
+  -webkit-filter: blur(2px);
+          filter: blur(2px);
+}
+
+.Modals--item {
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+
+.Modals--container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000000;
+}
 .Dialog--columnGroup {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -92,6 +111,15 @@
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+}
+
+.Dialog--controls {
+  margin-bottom:  -12px;
+}
+
+.Dialog--container {
+  width: 360px;
+  line-height: 1.618;
 }
 
 /*# sourceMappingURL=ShipComponentsDialog.css.map*/
