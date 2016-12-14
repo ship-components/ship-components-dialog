@@ -3,6 +3,12 @@ import Promise from 'bluebird';
 import React from 'react';
 
 /**
+ * Error Message to track canceled modals
+ * @type    {String}
+ */
+const ERROR_CANCEL = 'ModalCanceled';
+
+/**
  * Modal actions handle creating and closing Modals
  */
 export class ModelActions extends EventEmitter {
@@ -18,10 +24,10 @@ export class ModelActions extends EventEmitter {
      * event emitter
      * @type {ModalActions}
      */
-    var actions = this;
+    let actions = this;
 
-    // Return a promise
-    return new Promise(resolve => {
+    // Return a promise so we can do cool chains
+    return new Promise((resolve, reject) => {
       // Save original callback
       const onConfirm = component.props.onConfirm;
       const onClose = component.props.onClose;
@@ -39,7 +45,7 @@ export class ModelActions extends EventEmitter {
          */
         onConfirm(){
           // Pass it all through
-          var args = Array.prototype.slice.call(arguments);
+          const args = Array.prototype.slice.call(arguments);
 
           // Call original
           if (typeof onConfirm === 'function') {
@@ -57,19 +63,29 @@ export class ModelActions extends EventEmitter {
          * Hijack onClose so we can inject our flux workflow into it
          */
         onClose(){
+          const args = Array.prototype.slice.call(arguments);
+
           if (typeof onClose === 'function') {
             // Pass it all through
-            var args = Array.prototype.slice.call(arguments);
             onClose.apply(this, args);
           }
 
           actions.emit('close', component);
+
+          // We reject so we can complete the promise chain
+          reject(new Error(ERROR_CANCEL));
         }
-      });
+      })
 
       // Let the world know
       actions.emit('open', component);
-    });
+    })
+    .catch(err => {
+      // Skip Cancel Error
+      if (err.message !== ERROR_CANCEL) {
+        throw err;
+      }
+    })
   }
 }
 
