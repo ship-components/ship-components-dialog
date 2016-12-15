@@ -8,6 +8,16 @@ import React from 'react';
  */
 const ERROR_CANCEL = 'ModalCanceled';
 
+// Ensure bluebird is the right version. config is only in the 3.0 API
+if (typeof Promise.config !== 'function') {
+  throw new Error('Wrong version of bluebird');
+}
+
+// Enabled cancelling
+Promise.config({
+  cancellation: true
+});
+
 /**
  * Modal actions handle creating and closing Modals
  */
@@ -27,7 +37,7 @@ export class ModelActions extends EventEmitter {
     let actions = this;
 
     // Return a promise so we can do cool chains
-    return new Promise((resolve, reject) => {
+    const _promise = new Promise((resolve, reject) => {
       // Save original callback
       const onConfirm = component.props.onConfirm;
       const onClose = component.props.onClose;
@@ -54,7 +64,6 @@ export class ModelActions extends EventEmitter {
 
           // Let the store know to clean it up
           actions.emit('close', component);
-
           // Finish promise
           resolve.apply(this, args);
         },
@@ -71,7 +80,6 @@ export class ModelActions extends EventEmitter {
           }
 
           actions.emit('close', component);
-
           // We reject so we can complete the promise chain
           reject(new Error(ERROR_CANCEL));
         }
@@ -81,11 +89,15 @@ export class ModelActions extends EventEmitter {
       actions.emit('open', component);
     })
     .catch(err => {
-      // Skip Cancel Error
-      if (err.message !== ERROR_CANCEL) {
+      if (err.message === ERROR_CANCEL) {
+        // User cancelled, end the promise and call 'finally'
+        _promise.cancel();
+      } else {
         throw err;
       }
     })
+
+    return _promise;
   }
 }
 
