@@ -140,6 +140,7 @@ Below are is a sample of how to setup the loaders:
 2. `npm test`
 
 ## History
+0.2.4 - Updated ship-components-*
 0.2.3 - Fixed cancel
 0.2.2 - Added support for 'finally'
 0.2.1 - Added support for disable confirm button in <Confirm />
