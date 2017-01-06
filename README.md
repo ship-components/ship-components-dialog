@@ -140,14 +140,15 @@ Below are is a sample of how to setup the loaders:
 2. `npm test`
 
 ## History
-0.2.4 - Updated ship-components-*
-0.2.3 - Fixed cancel
-0.2.2 - Added support for 'finally'
-0.2.1 - Added support for disable confirm button in <Confirm />
-0.2.0 - Allowed multiple modals at the same time
-0.1.2 - Fixed a spelling error
-0.1.1 - Moved ship-components-* to dependencies
-0.1.0 - Initial
+* 0.2.5 - Switched font-weight around to be more consistent with other components
+* 0.2.4 - Updated ship-components-*
+* 0.2.3 - Fixed cancel
+* 0.2.2 - Added support for 'finally'
+* 0.2.1 - Added support for disable confirm button in <Confirm />
+* 0.2.0 - Allowed multiple modals at the same time
+* 0.1.2 - Fixed a spelling error
+* 0.1.1 - Moved ship-components-* to dependencies
+* 0.1.0 - Initial
 
 ## License
 The MIT License (MIT)
