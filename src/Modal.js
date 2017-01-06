@@ -8,9 +8,7 @@
 // Modules
 import React from 'react';
 import classNames from 'classnames';
-import {Button} from 'ship-components-buttons';
 import css from './Modal.css';
-import icon from 'ship-components-icon';
 
 export default class Modal extends React.Component {
 
@@ -29,34 +27,9 @@ export default class Modal extends React.Component {
   }
 
   handleWindowKeyDown(event) {
-    if (event.code === 'Escape' || event.keyCode === 27) {
+    if (!this.props.disableClose && (event.code === 'Escape' || event.keyCode === 27)) {
       this.props.onClose(event);
     }
-  }
-
-  renderTitle() {
-    if(!this.props.title || !this.props.header) {
-      return null;
-    }
-    return (
-      <h1 className={classNames(css.title)}>
-        {this.props.title}
-      </h1>
-    );
-  }
-
-  renderCloseButton() {
-    if(!this.props.header) {
-      return null;
-    }
-    return (
-      <Button
-        className={classNames(css.close)}
-        type='flat'
-        iconClass={icon.close}
-        onClick={this.props.onClose}
-      />
-  );
   }
 
   /**
@@ -65,6 +38,10 @@ export default class Modal extends React.Component {
    * @return {[type]}       [description]
    */
   handleClickBackground(event) {
+    if (this.props.disableClose) {
+      return;
+    }
+
     let el = event.target;
     let source = el;
     while (source.parentNode) {
@@ -94,8 +71,6 @@ export default class Modal extends React.Component {
             ref='container'
             className={css.container}
           >
-              {this.renderTitle()}
-              {this.renderCloseButton()}
               <div className={classNames(css.body, this.props.className)}>
                 {this.props.children}
               </div>
