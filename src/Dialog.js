@@ -32,7 +32,7 @@ export default class Dialog extends Component {
       <Modal
         {...this.props}
         className={classNames(css.container, this.props.className)}
-        header={false}
+        disableClose={this.props.disableClose}
       >
         {this.props.name ?
           <h1 className={css.title}>{this.props.name}</h1>
@@ -49,7 +49,8 @@ export default class Dialog extends Component {
               <Button
                 key={btn.label}
                 disabled={btn.disabled === true}
-                onClick={btn.onClick} >
+                onClick={btn.onClick}
+              >
                   {btn.label}
               </Button>
             );
@@ -67,6 +68,7 @@ export default class Dialog extends Component {
 Dialog.defaultProps = {
   confirm: 'OK',
   cancel: 'Cancel',
+  disableClose: false,
   disableConfirm: false
 };
 
@@ -79,5 +81,6 @@ Dialog.propTypes = {
   cancel: PropTypes.string,
   onConfirm: PropTypes.func,
   onClose: PropTypes.func,
+  disableClose: PropTypes.bool,
   disableConfirm: PropTypes.bool
 }
