@@ -140,6 +140,7 @@ Below are is a sample of how to setup the loaders:
 2. `npm test`
 
 ## History
+# 0.3.0 - Removed header close button; and added dialog type FormDialog
 * 0.2.5 - Switched font-weight around to be more consistent with other components
 * 0.2.4 - Updated ship-components-*
 * 0.2.3 - Fixed cancel
