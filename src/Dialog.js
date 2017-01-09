@@ -68,7 +68,7 @@ export default class Dialog extends Component {
 Dialog.defaultProps = {
   confirm: 'OK',
   cancel: 'Cancel',
-  disableConfirm: false,
+  disableClose: false,
   disableConfirm: false
 };
 
