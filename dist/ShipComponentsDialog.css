@@ -21,7 +21,6 @@
 
 .Modal--container {
   background-color: #fff;
-  font-weight: 400;
   border-radius: 2px;
   margin: 40px;
   position: relative;
@@ -115,6 +114,7 @@
 
 .Dialog--controls {
   margin-bottom:  -12px;
+  font-weight: 400;
 }
 
 .Dialog--container {

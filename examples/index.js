@@ -87,6 +87,24 @@ class Examples extends React.Component {
     });
   }
 
+  handleConfirmExample2() {
+    ModalActions.open(
+      <Confirm
+        confirm='Yes, this does nothing...'
+        cancel='Close'
+        onConfirm={()=> false}
+      >
+        Are you sure you want to delete nothing?
+      </Confirm>
+    ).then(()=>{
+      ModalActions.open(
+        <Alert>
+          This will never show...
+        </Alert>
+      )
+    });
+  }
+
   render() {
     return (
       <div>
@@ -110,6 +128,16 @@ class Examples extends React.Component {
             </RaisedButton>
             <RaisedButton onClick={this.handleConfirmExampleTwo} >
               Open Custom Confirm
+            </RaisedButton>
+          </ButtonGroup>
+        </div>
+        <div className='example-group'>
+          <h2>{'<Confirm />'}</h2>
+          <ButtonGroup fill>
+            <RaisedButton
+              onClick={this.handleConfirmExample2}
+            >
+              Open Confirm
             </RaisedButton>
           </ButtonGroup>
         </div>

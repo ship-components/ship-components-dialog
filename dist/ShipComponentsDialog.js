@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("React"), require("classnames"), require("ship-components-buttons"), require("ship-components-icon"));
+		module.exports = factory(require("React"), require("classnames"), require("ship-components-buttons"));
 	else if(typeof define === 'function' && define.amd)
-		define(["React", "classnames", "ship-components-buttons", "ship-components-icon"], factory);
+		define(["React", "classnames", "ship-components-buttons"], factory);
 	else {
-		var a = typeof exports === 'object' ? factory(require("React"), require("classnames"), require("ship-components-buttons"), require("ship-components-icon")) : factory(root["React"], root["classnames"], root["ship-components-buttons"], root["ship-components-icon"]);
+		var a = typeof exports === 'object' ? factory(require("React"), require("classnames"), require("ship-components-buttons")) : factory(root["React"], root["classnames"], root["ship-components-buttons"]);
 		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
 	}
-})(this, function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXTERNAL_MODULE_4__, __WEBPACK_EXTERNAL_MODULE_9__, __WEBPACK_EXTERNAL_MODULE_18__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE_2__, __WEBPACK_EXTERNAL_MODULE_4__, __WEBPACK_EXTERNAL_MODULE_18__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -57,9 +57,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	                                              value: true
+	  value: true
 	});
-	exports.Confirm = exports.Alert = exports.Dialog = exports.ModalStore = exports.ModalActions = exports.Modals = exports.Modal = undefined;
+	exports.FormDialog = exports.Confirm = exports.Alert = exports.Dialog = exports.ModalStore = exports.ModalActions = exports.Modals = exports.Modal = undefined;
 	
 	var _Modal = __webpack_require__(5);
 	
@@ -77,26 +77,31 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _ModalStore2 = _interopRequireDefault(_ModalStore);
 	
-	var _Dialog = __webpack_require__(2);
+	var _Dialog = __webpack_require__(1);
 	
 	var _Dialog2 = _interopRequireDefault(_Dialog);
 	
-	var _Alert = __webpack_require__(10);
+	var _Alert = __webpack_require__(9);
 	
 	var _Alert2 = _interopRequireDefault(_Alert);
 	
-	var _Confirm = __webpack_require__(11);
+	var _Confirm = __webpack_require__(10);
 	
 	var _Confirm2 = _interopRequireDefault(_Confirm);
 	
+	var _FormDialog = __webpack_require__(11);
+	
+	var _FormDialog2 = _interopRequireDefault(_FormDialog);
+	
 	function _interopRequireDefault(obj) {
-	                                              return obj && obj.__esModule ? obj : { default: obj };
+	  return obj && obj.__esModule ? obj : { default: obj };
 	}
 	
-	var Modal = exports.Modal = _Modal2.default; /**
-	                                              * Package Exports
-	                                              */
+	/**
+	 * Package Exports
+	 */
 	
+	var Modal = exports.Modal = _Modal2.default;
 	var Modals = exports.Modals = _Modals2.default;
 	var ModalActions = exports.ModalActions = _ModalActions2.default;
 	var ModalStore = exports.ModalStore = _ModalStore2.default;
@@ -104,15 +109,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	var Dialog = exports.Dialog = _Dialog2.default;
 	var Alert = exports.Alert = _Alert2.default;
 	var Confirm = exports.Confirm = _Confirm2.default;
+	var FormDialog = exports.FormDialog = _FormDialog2.default;
 
 /***/ },
 /* 1 */
-/***/ function(module, exports) {
-
-	module.exports = __WEBPACK_EXTERNAL_MODULE_1__;
-
-/***/ },
-/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -143,7 +143,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  };
 	}();
 	
-	var _react = __webpack_require__(1);
+	var _react = __webpack_require__(2);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
@@ -155,7 +155,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _Modal2 = _interopRequireDefault(_Modal);
 	
-	var _shipComponentsButtons = __webpack_require__(9);
+	var _shipComponentsButtons = __webpack_require__(18);
 	
 	var _Dialog = __webpack_require__(15);
 	
@@ -218,7 +218,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function render() {
 	      return _react2.default.createElement(_Modal2.default, _extends({}, this.props, {
 	        className: (0, _classnames2.default)(_Dialog2.default.container, this.props.className),
-	        header: false
+	        disableClose: this.props.disableClose
 	      }), this.props.name ? _react2.default.createElement('h1', { className: _Dialog2.default.title }, this.props.name) : null, _react2.default.createElement('div', { className: _Dialog2.default.body }, this.props.message || this.props.children), _react2.default.createElement(_shipComponentsButtons.ButtonGroup, {
 	        align: 'right',
 	        className: _Dialog2.default.controls
@@ -226,7 +226,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return _react2.default.createElement(_shipComponentsButtons.Button, {
 	          key: btn.label,
 	          disabled: btn.disabled === true,
-	          onClick: btn.onClick }, btn.label);
+	          onClick: btn.onClick
+	        }, btn.label);
 	      })));
 	    }
 	  }]);
@@ -243,6 +244,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	Dialog.defaultProps = {
 	  confirm: 'OK',
 	  cancel: 'Cancel',
+	  disableClose: false,
 	  disableConfirm: false
 	};
 	
@@ -255,8 +257,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	  cancel: _react.PropTypes.string,
 	  onConfirm: _react.PropTypes.func,
 	  onClose: _react.PropTypes.func,
+	  disableClose: _react.PropTypes.bool,
 	  disableConfirm: _react.PropTypes.bool
 	};
+
+/***/ },
+/* 2 */
+/***/ function(module, exports) {
+
+	module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
 
 /***/ },
 /* 3 */
@@ -368,7 +377,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  };
 	}();
 	
-	var _react = __webpack_require__(1);
+	var _react = __webpack_require__(2);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
@@ -376,15 +385,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
-	var _shipComponentsButtons = __webpack_require__(9);
-	
 	var _Modal = __webpack_require__(16);
 	
 	var _Modal2 = _interopRequireDefault(_Modal);
-	
-	var _shipComponentsIcon = __webpack_require__(18);
-	
-	var _shipComponentsIcon2 = _interopRequireDefault(_shipComponentsIcon);
 	
 	function _interopRequireDefault(obj) {
 	  return obj && obj.__esModule ? obj : { default: obj };
@@ -442,30 +445,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'handleWindowKeyDown',
 	    value: function handleWindowKeyDown(event) {
-	      if (event.code === 'Escape' || event.keyCode === 27) {
+	      if (!this.props.disableClose && (event.code === 'Escape' || event.keyCode === 27)) {
 	        this.props.onClose(event);
 	      }
-	    }
-	  }, {
-	    key: 'renderTitle',
-	    value: function renderTitle() {
-	      if (!this.props.title || !this.props.header) {
-	        return null;
-	      }
-	      return _react2.default.createElement('h1', { className: (0, _classnames2.default)(_Modal2.default.title) }, this.props.title);
-	    }
-	  }, {
-	    key: 'renderCloseButton',
-	    value: function renderCloseButton() {
-	      if (!this.props.header) {
-	        return null;
-	      }
-	      return _react2.default.createElement(_shipComponentsButtons.Button, {
-	        className: (0, _classnames2.default)(_Modal2.default.close),
-	        type: 'flat',
-	        iconClass: _shipComponentsIcon2.default.close,
-	        onClick: this.props.onClose
-	      });
 	    }
 	
 	    /**
@@ -477,6 +459,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'handleClickBackground',
 	    value: function handleClickBackground(event) {
+	      if (this.props.disableClose) {
+	        return;
+	      }
+	
 	      var el = event.target;
 	      var source = el;
 	      while (source.parentNode) {
@@ -506,7 +492,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }, _react2.default.createElement('div', {
 	        ref: 'container',
 	        className: _Modal2.default.container
-	      }, this.renderTitle(), this.renderCloseButton(), _react2.default.createElement('div', { className: (0, _classnames2.default)(_Modal2.default.body, this.props.className) }, this.props.children)));
+	      }, _react2.default.createElement('div', { className: (0, _classnames2.default)(_Modal2.default.body, this.props.className) }, this.props.children)));
 	    }
 	  }]);
 	
@@ -555,7 +541,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _bluebird2 = _interopRequireDefault(_bluebird);
 	
-	var _react = __webpack_require__(1);
+	var _react = __webpack_require__(2);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
@@ -582,8 +568,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	
 	/**
+	 * Error Message to track canceled modals
+	 * @type    {String}
+	 */
+	var ERROR_CANCEL = 'ModalCanceled';
+	
+	// Ensure bluebird is the right version. config is only in the 3.0 API
+	if (typeof _bluebird2.default.config !== 'function') {
+	  throw new Error('Wrong version of bluebird');
+	}
+	
+	// Enabled cancelling
+	_bluebird2.default.config({
+	  cancellation: true
+	});
+	
+	/**
 	 * Modal actions handle creating and closing Modals
 	 */
+	
 	var ModelActions = exports.ModelActions = function (_EventEmitter) {
 	  _inherits(ModelActions, _EventEmitter);
 	
@@ -609,8 +612,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	       */
 	      var actions = this;
 	
-	      // Return a promise
-	      return new _bluebird2.default(function (resolve) {
+	      // Return a promise so we can do cool chains
+	      var _promise = new _bluebird2.default(function (resolve, reject) {
 	        // Save original callback
 	        var _onConfirm = component.props.onConfirm;
 	        var _onClose = component.props.onClose;
@@ -631,13 +634,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var args = Array.prototype.slice.call(arguments);
 	
 	            // Call original
-	            if (typeof _onConfirm === 'function') {
-	              _onConfirm.apply(this, args);
+	            if (typeof _onConfirm === 'function' && _onConfirm.apply(this, args) === false) {
+	              // If it's false, don't close
+	              return;
 	            }
 	
 	            // Let the store know to clean it up
 	            actions.emit('close', component);
-	
 	            // Finish promise
 	            resolve.apply(this, args);
 	          },
@@ -646,19 +649,31 @@ return /******/ (function(modules) { // webpackBootstrap
 	           * Hijack onClose so we can inject our flux workflow into it
 	           */
 	          onClose: function onClose() {
+	            var args = Array.prototype.slice.call(arguments);
+	
 	            if (typeof _onClose === 'function') {
 	              // Pass it all through
-	              var args = Array.prototype.slice.call(arguments);
 	              _onClose.apply(this, args);
 	            }
 	
 	            actions.emit('close', component);
+	            // We reject so we can complete the promise chain
+	            reject(new Error(ERROR_CANCEL));
 	          }
 	        });
 	
 	        // Let the world know
 	        actions.emit('open', component);
+	      }).catch(function (err) {
+	        if (err.message === ERROR_CANCEL) {
+	          // User cancelled, end the promise and call 'finally'
+	          _promise.cancel();
+	        } else {
+	          throw err;
+	        }
 	      });
+	
+	      return _promise;
 	    }
 	  }]);
 	
@@ -1149,12 +1164,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 9 */
-/***/ function(module, exports) {
-
-	module.exports = __WEBPACK_EXTERNAL_MODULE_9__;
-
-/***/ },
-/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1175,7 +1184,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  };
 	}();
 	
-	var _Dialog2 = __webpack_require__(2);
+	var _Dialog2 = __webpack_require__(1);
 	
 	var _Dialog3 = _interopRequireDefault(_Dialog2);
 	
@@ -1244,7 +1253,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 11 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1265,7 +1274,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  };
 	}();
 	
-	var _Dialog2 = __webpack_require__(2);
+	var _Dialog2 = __webpack_require__(1);
 	
 	var _Dialog3 = _interopRequireDefault(_Dialog2);
 	
@@ -1327,6 +1336,92 @@ return /******/ (function(modules) { // webpackBootstrap
 	}(_Dialog3.default);
 	
 	exports.default = Confirm;
+
+/***/ },
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () {
+	  function defineProperties(target, props) {
+	    for (var i = 0; i < props.length; i++) {
+	      var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+	    }
+	  }return function (Constructor, protoProps, staticProps) {
+	    if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	  };
+	}();
+	
+	var _Dialog2 = __webpack_require__(1);
+	
+	var _Dialog3 = _interopRequireDefault(_Dialog2);
+	
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { default: obj };
+	}
+	
+	function _classCallCheck(instance, Constructor) {
+	  if (!(instance instanceof Constructor)) {
+	    throw new TypeError("Cannot call a class as a function");
+	  }
+	}
+	
+	function _possibleConstructorReturn(self, call) {
+	  if (!self) {
+	    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+	  }return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+	}
+	
+	function _inherits(subClass, superClass) {
+	  if (typeof superClass !== "function" && superClass !== null) {
+	    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
+	  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+	}
+	
+	/**
+	 * This is mostly an alias for Dialog
+	 * @alias
+	 */
+	var FormDialog = function (_Dialog) {
+	  _inherits(FormDialog, _Dialog);
+	
+	  function FormDialog() {
+	    _classCallCheck(this, FormDialog);
+	
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(FormDialog).apply(this, arguments));
+	  }
+	
+	  _createClass(FormDialog, [{
+	    key: 'getButtons',
+	
+	    /**
+	     * Which buttons to shallow
+	     * @return {Array<Object>}
+	     */
+	    value: function getButtons() {
+	      return [{
+	        label: this.props.cancel,
+	        disabled: this.props.disableClose,
+	        onClick: this.props.onClose
+	      }, {
+	        label: this.props.confirm,
+	        disabled: this.props.disableConfirm,
+	        onClick: this.props.onConfirm
+	      }];
+	    }
+	  }]);
+	
+	  return FormDialog;
+	}(_Dialog3.default);
+	
+	exports.default = FormDialog;
 
 /***/ },
 /* 12 */
@@ -1538,7 +1633,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  };
 	}();
 	
-	var _react = __webpack_require__(1);
+	var _react = __webpack_require__(2);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
