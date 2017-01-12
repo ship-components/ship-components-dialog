@@ -58,8 +58,9 @@ export class ModelActions extends EventEmitter {
           const args = Array.prototype.slice.call(arguments);
 
           // Call original
-          if (typeof onConfirm === 'function') {
-            onConfirm.apply(this, args);
+          if (typeof onConfirm === 'function' && onConfirm.apply(this, args) === false) {
+            // If it's false, don't close
+            return;
           }
 
           // Let the store know to clean it up
