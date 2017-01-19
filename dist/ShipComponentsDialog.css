@@ -10,7 +10,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  overflow-y: scroll;
+  overflow-y: auto;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -22,7 +22,7 @@
 .Modal--container {
   background-color: #fff;
   border-radius: 2px;
-  margin: 40px;
+  margin: auto;
   position: relative;
   z-index: 10001;
   box-sizing: border-box;
