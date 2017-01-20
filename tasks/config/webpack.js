@@ -70,8 +70,14 @@ module.exports = function(grunt) {
     },
     externals: {
       react: 'React',
-      'react-dom': 'ReactDOM',
-      'react-addons-css-transition-group': 'React.addons.CSSTransitionGroup'
+      'react-dom': 'ReactDOM'
+    },
+    resolve: {
+      extensions: ['', '.js', '.jsx', '.es6'],
+      fallback: path.resolve(__dirname, '../../node_modules'),
+      alias: {
+        'react-addons-css-transition-group': path.resolve(__dirname, '../../node_modules/react-addons-css-transition-group')
+      }
     }
   });
 

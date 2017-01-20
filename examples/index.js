@@ -141,9 +141,7 @@ class Examples extends React.Component {
             </RaisedButton>
           </ButtonGroup>
         </div>
-        <Modals
-          modals={this.state.modals}
-        />
+        <Modals />
       </div>
     );
   }
