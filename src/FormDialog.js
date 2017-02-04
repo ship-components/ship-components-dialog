@@ -24,4 +24,8 @@ export default class FormDialog extends Dialog {
       }
     ];
   }
+
+  getDialogType() {
+    return "formDialog";
+  }
 }

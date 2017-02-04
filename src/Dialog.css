@@ -16,3 +16,16 @@
   width: 360px;
   line-height: 1.618;
 }
+
+.formDialog .body {
+	border-top: 1px solid #ccc;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.formDialog .controls {
+	margin: 0;
+	border-top: 1px solid #ccc;
+	padding: 5px 20px 10px 0;
+	flex-shrink: 0;
+}

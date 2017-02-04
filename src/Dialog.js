@@ -31,7 +31,7 @@ export default class Dialog extends Component {
     return (
       <Modal
         {...this.props}
-        className={classNames(css.container, this.props.className)}
+        className={classNames(css.container, this.props.className, {[css[this.getDialogType()]]: !!this.getDialogType()})}
         disableClose={this.props.disableClose}
       >
         {this.props.name ?
