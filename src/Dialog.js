@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import Modal from './Modal';
 import { Button, ButtonGroup } from 'ship-components-buttons';
 import css from './Dialog.css';
-import {getScrollingDialogClassname} from "./index";
+import {getScrollingDialogClassname} from './index';
 
 export default class Dialog extends Component {
 
@@ -29,10 +29,11 @@ export default class Dialog extends Component {
   }
 
   render() {
+    let dialogClass = typeof this.getDialogType === 'function' ? css[this.getDialogType()] : '';
     return (
       <Modal
         {...this.props}
-        className={classNames(css.container, this.props.className, {[css[this.getDialogType()]]: !!this.getDialogType()})}
+        className={classNames(css.container, this.props.className, dialogClass)}
         disableClose={this.props.disableClose}
       >
         {this.props.name ?

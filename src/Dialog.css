@@ -17,15 +17,45 @@
   line-height: 1.618;
 }
 
+.formDialog {
+  position: relative;
+  height: 90vh;
+  overflow: hidden;
+  padding: 0;
+  min-height: 145px;
+}
+
+.formDialog .title,
+.formDialog .body	{
+	padding: 0 20px;
+}
+
+.formDialog .title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
 .formDialog .body {
-	border-top: 1px solid #ccc;
+  position: absolute;
+  top: 88px;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+	border-top: 1px solid #ccc; 
 	overflow-y: auto;
 	overflow-x: hidden;
 }
 
 .formDialog .controls {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
 	margin: 0;
-	border-top: 1px solid #ccc;
+	height: 60px;
+  box-sizing: border-box;
+	border-top: 1px solid #ccc; 
 	padding: 5px 20px 10px 0;
-	flex-shrink: 0;
 }
