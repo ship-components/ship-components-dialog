@@ -4,6 +4,12 @@ import Modal from './Modal';
 import { Button, ButtonGroup } from 'ship-components-buttons';
 import css from './Dialog.css';
 
+/**
+ * Part of a hack for showing dropdown menus that "hang off" of the dialog when dialog has overflow:hidden.
+ * @type {String}
+ */
+const DROPDOWN_PARENT_CLASSNAME = "ship-components--dialog-body";
+
 export default class Dialog extends Component {
 
   /**
@@ -37,7 +43,7 @@ export default class Dialog extends Component {
         {this.props.name ?
           <h1 className={css.title}>{this.props.name}</h1>
         : null}
-        <div className={css.body}>
+        <div className={classNames(css.body, DROPDOWN_PARENT_CLASSNAME)}>
           {this.props.message || this.props.children}
         </div>
         <ButtonGroup
