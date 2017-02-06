@@ -140,6 +140,8 @@ Below are is a sample of how to setup the loaders:
 2. `npm test`
 
 ## History
+* 0.6.0 - updates to FormDialog for scrolling inner content
+* 0.4.1 - css tweaks to fix scrolling and very tall modals
 * 0.4.1 - css tweaks to fix scrolling and very tall modals
 * 0.4.0 - Added option to cancel confirm by having onConfirm return false
 * 0.3.0 - Removed header close button; and added dialog type FormDialog
