@@ -21,3 +21,12 @@ export const Dialog = dialog;
 export const Alert = alert;
 export const Confirm = confirm;
 export const FormDialog = formDialog;
+
+/**
+ * Part of a hack for showing dropdown menus that "hang off" of the dialog when dialog has overflow:hidden.
+ * @type {String}
+ */
+const DROPDOWN_PARENT_CLASSNAME = "ship-components--dialog-body";
+export function getScrollingDialogClassname() {
+  return DROPDOWN_PARENT_CLASSNAME;
+}
