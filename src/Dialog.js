@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import Modal from './Modal';
 import { Button, ButtonGroup } from 'ship-components-buttons';
 import css from './Dialog.css';
+import {SCROLLING_PARENT_CLASS} from './index';
 
 export default class Dialog extends Component {
 
@@ -37,7 +38,7 @@ export default class Dialog extends Component {
         {this.props.name ?
           <h1 className={css.title}>{this.props.name}</h1>
         : null}
-        <div className={css.body}>
+        <div className={classNames(css.body, SCROLLING_PARENT_CLASS)}>
           {this.props.message || this.props.children}
         </div>
         <ButtonGroup
