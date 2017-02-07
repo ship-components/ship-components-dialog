@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import Modal from './Modal';
 import { Button, ButtonGroup } from 'ship-components-buttons';
 import css from './Dialog.css';
-import {SCROLLING_PARENT_CLASS} from "./index";
+import {SCROLLING_PARENT_CLASS} from './index';
 
 export default class Dialog extends Component {
 
