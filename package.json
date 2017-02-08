@@ -1,12 +1,12 @@
 {
   "name": "ship-components-dialog",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "React material design modals",
   "main": "src/index.js",
   "scripts": {
     "start": "grunt server",
     "build": "grunt build",
-    "test": "grunt lint && ./node_modules/jest-cli/bin/jest.js src/ --coverage",
+    "test": "grunt lint && ./node_modules/jest-cli/bin/jest.js --coverage",
     "coverage": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js -v"
   },
   "repository": {
@@ -17,6 +17,14 @@
     {
       "name": "Isaac Suttell",
       "email": "isaac.suttell@sony.com"
+    },
+    {
+      "name": "Chris Orescan",
+      "email": "chris.orescan@sony.com"
+    },
+    {
+      "name": "Sepand Assadi",
+      "email": "sepand.assadi@sony.com"
     }
   ],
   "keywords": [
@@ -43,7 +51,7 @@
     "babel": "^6.5.2",
     "babel-core": "^6.13.2",
     "babel-eslint": "^6.1.2",
-    "babel-jest": "^14.1.0",
+    "babel-jest": "^18.0.0",
     "babel-loader": "^6.2.5",
     "babel-preset-es2015": "^6.13.2",
     "babel-preset-react": "^6.11.1",
@@ -61,7 +69,8 @@
     "grunt-eslint": "^19.0.0",
     "grunt-webpack": "^1.0.14",
     "invariant": "^2.2.1",
-    "jest-cli": "^14.1.0",
+    "jest-cli": "^18.1.0",
+    "jest-css-modules": "^1.1.0",
     "postcss-calc": "^5.3.1",
     "postcss-color-function": "^2.0.1",
     "postcss-color-hex-alpha": "^2.0.0",
@@ -75,18 +84,12 @@
     "webpack-dev-server": "^1.15.0"
   },
   "jest": {
-    "scriptPreprocessor": "node_modules/babel-jest",
-    "testFileExtensions": [
-      "es6",
-      "jsx",
-      "js"
-    ],
-    "moduleFileExtensions": [
-      "js",
-      "jsx",
-      "json",
-      "es6"
-    ],
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "moduleNameMapper": {
+      "\\.(css)$": "<rootDir>/node_modules/jest-css-modules"
+    },
     "unmockedModulePathPatterns": [
       "<rootDir>/node_modules/classnames",
       "<rootDir>/node_modules/react",
