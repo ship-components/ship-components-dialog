@@ -140,6 +140,7 @@ Below are is a sample of how to setup the loaders:
 2. `npm test`
 
 ## History
+* 0.7.0 - Added new boolean prop closeOnLeave to allow dialog to close with window.onpopstate.
 * 0.6.1 - Fixes the Jest functionality to pass all tests
 * 0.6.0 - updates to FormDialog for scrolling inner content
 * 0.4.1 - css tweaks to fix scrolling and very tall modals
