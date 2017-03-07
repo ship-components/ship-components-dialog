@@ -16,14 +16,25 @@ export default class Modal extends React.Component {
     super(props);
     this.handleWindowKeyDown = this.handleWindowKeyDown.bind(this);
     this.handleClickBackground = this.handleClickBackground.bind(this);
+    this.handlePopState = this.handlePopState.bind(this);
   }
 
   componentDidMount() {
     window.addEventListener('keydown', this.handleWindowKeyDown);
+    if (this.props.closeOnLeave) {
+      window.addEventListener('popstate', this.handlePopState);
+    }
   }
 
   componentWillUnmount() {
     window.removeEventListener('keydown', this.handleWindowKeyDown);
+    window.removeEventListener('popstate', this.handlePopState);
+  }
+
+  handlePopState(event) {
+    if (!this.props.disableClose && this.props.closeOnLeave) {
+      this.props.onClose(event);
+    }
   }
 
   handleWindowKeyDown(event) {
