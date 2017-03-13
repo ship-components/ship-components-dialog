@@ -69,8 +69,6 @@ module.exports = function(grunt) {
       failOnWarning: false
     },
     externals: {
-      react: 'React',
-      'react-dom': 'ReactDOM'
     },
     resolve: {
       extensions: ['', '.js', '.jsx', '.es6'],
