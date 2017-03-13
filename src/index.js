@@ -11,6 +11,7 @@ import dialog from './Dialog';
 import alert from './Alert';
 import confirm from './Confirm';
 import formDialog from './FormDialog';
+import * as constants from './constants';
 
 export const Modal = modal;
 export const Modals = modals;
@@ -26,4 +27,4 @@ export const FormDialog = formDialog;
  * Part of a hack for showing dropdown menus that "hang off" of the dialog when dialog has overflow:hidden.
  * @type {String}
  */
-export const SCROLLING_PARENT_CLASS = 'ship-components--dialog-body';
+export const SCROLLING_PARENT_CLASS = constants.SCROLLING_PARENT_CLASS;
