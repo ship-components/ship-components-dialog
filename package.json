@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "grunt server",
-    "build": "grunt build",
+    "build": "npm run test && grunt build",
     "test": "grunt lint && ./node_modules/jest-cli/bin/jest.js --coverage",
     "coverage": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js -v"
   },
