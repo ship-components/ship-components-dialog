@@ -7,7 +7,7 @@
 		var a = typeof exports === 'object' ? factory(require("React"), require("classnames"), require("ship-components-buttons")) : factory(root["React"], root["classnames"], root["ship-components-buttons"]);
 		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
 	}
-})(this, function(__WEBPACK_EXTERNAL_MODULE_2__, __WEBPACK_EXTERNAL_MODULE_3__, __WEBPACK_EXTERNAL_MODULE_19__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXTERNAL_MODULE_3__, __WEBPACK_EXTERNAL_MODULE_20__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -59,13 +59,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.FormDialog = exports.Confirm = exports.Alert = exports.Dialog = exports.ModalStore = exports.ModalActions = exports.Modals = exports.Modal = undefined;
+	exports.SCROLLING_PARENT_CLASS = exports.FormDialog = exports.Confirm = exports.Alert = exports.Dialog = exports.ModalStore = exports.ModalActions = exports.Modals = exports.Modal = undefined;
 	
 	var _Modal = __webpack_require__(4);
 	
 	var _Modal2 = _interopRequireDefault(_Modal);
 	
-	var _Modals = __webpack_require__(12);
+	var _Modals = __webpack_require__(14);
 	
 	var _Modals2 = _interopRequireDefault(_Modals);
 	
@@ -77,31 +77,46 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _ModalStore2 = _interopRequireDefault(_ModalStore);
 	
-	var _Dialog = __webpack_require__(1);
+	var _Dialog = __webpack_require__(2);
 	
 	var _Dialog2 = _interopRequireDefault(_Dialog);
 	
-	var _Alert = __webpack_require__(9);
+	var _Alert = __webpack_require__(11);
 	
 	var _Alert2 = _interopRequireDefault(_Alert);
 	
-	var _Confirm = __webpack_require__(10);
+	var _Confirm = __webpack_require__(12);
 	
 	var _Confirm2 = _interopRequireDefault(_Confirm);
 	
-	var _FormDialog = __webpack_require__(11);
+	var _FormDialog = __webpack_require__(13);
 	
 	var _FormDialog2 = _interopRequireDefault(_FormDialog);
+	
+	var _constants = __webpack_require__(7);
+	
+	var constants = _interopRequireWildcard(_constants);
+	
+	function _interopRequireWildcard(obj) {
+	  if (obj && obj.__esModule) {
+	    return obj;
+	  } else {
+	    var newObj = {};if (obj != null) {
+	      for (var key in obj) {
+	        if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];
+	      }
+	    }newObj.default = obj;return newObj;
+	  }
+	}
 	
 	function _interopRequireDefault(obj) {
 	  return obj && obj.__esModule ? obj : { default: obj };
 	}
 	
-	/**
-	 * Package Exports
-	 */
+	var Modal = exports.Modal = _Modal2.default; /**
+	                                              * Package Exports
+	                                              */
 	
-	var Modal = exports.Modal = _Modal2.default;
 	var Modals = exports.Modals = _Modals2.default;
 	var ModalActions = exports.ModalActions = _ModalActions2.default;
 	var ModalStore = exports.ModalStore = _ModalStore2.default;
@@ -110,9 +125,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	var Alert = exports.Alert = _Alert2.default;
 	var Confirm = exports.Confirm = _Confirm2.default;
 	var FormDialog = exports.FormDialog = _FormDialog2.default;
+	
+	/**
+	 * Part of a hack for showing dropdown menus that "hang off" of the dialog when dialog has overflow:hidden.
+	 * @type {String}
+	 */
+	var SCROLLING_PARENT_CLASS = exports.SCROLLING_PARENT_CLASS = constants.SCROLLING_PARENT_CLASS;
 
 /***/ },
 /* 1 */
+/***/ function(module, exports) {
+
+	module.exports = __WEBPACK_EXTERNAL_MODULE_1__;
+
+/***/ },
+/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -143,7 +170,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  };
 	}();
 	
-	var _react = __webpack_require__(2);
+	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
@@ -155,11 +182,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _Modal2 = _interopRequireDefault(_Modal);
 	
-	var _shipComponentsButtons = __webpack_require__(19);
+	var _shipComponentsButtons = __webpack_require__(20);
 	
-	var _Dialog = __webpack_require__(14);
+	var _Dialog = __webpack_require__(9);
 	
 	var _Dialog2 = _interopRequireDefault(_Dialog);
+	
+	var _constants = __webpack_require__(7);
 	
 	function _interopRequireDefault(obj) {
 	  return obj && obj.__esModule ? obj : { default: obj };
@@ -219,7 +248,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return _react2.default.createElement(_Modal2.default, _extends({}, this.props, {
 	        className: (0, _classnames2.default)(_Dialog2.default.container, this.props.className),
 	        disableClose: this.props.disableClose
-	      }), this.props.name ? _react2.default.createElement('h1', { className: _Dialog2.default.title }, this.props.name) : null, _react2.default.createElement('div', { className: _Dialog2.default.body }, this.props.message || this.props.children), _react2.default.createElement(_shipComponentsButtons.ButtonGroup, {
+	      }), this.props.name ? _react2.default.createElement('h1', { className: _Dialog2.default.title }, this.props.name) : null, _react2.default.createElement('div', { className: (0, _classnames2.default)(_Dialog2.default.body, _constants.SCROLLING_PARENT_CLASS) }, this.props.message || this.props.children), _react2.default.createElement(_shipComponentsButtons.ButtonGroup, {
 	        align: 'right',
 	        className: _Dialog2.default.controls
 	      }, this.getButtons().map(function (btn) {
@@ -262,12 +291,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 2 */
-/***/ function(module, exports) {
-
-	module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
-
-/***/ },
 /* 3 */
 /***/ function(module, exports) {
 
@@ -295,7 +318,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  };
 	}();
 	
-	var _react = __webpack_require__(2);
+	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
@@ -303,7 +326,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
-	var _Modal = __webpack_require__(15);
+	var _Modal = __webpack_require__(16);
 	
 	var _Modal2 = _interopRequireDefault(_Modal);
 	
@@ -451,15 +474,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	  };
 	}();
 	
-	var _events = __webpack_require__(7);
+	var _events = __webpack_require__(8);
 	
 	var _events2 = _interopRequireDefault(_events);
 	
-	var _bluebird = __webpack_require__(13);
+	var _bluebird = __webpack_require__(15);
 	
 	var _bluebird2 = _interopRequireDefault(_bluebird);
 	
-	var _react = __webpack_require__(2);
+	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
@@ -629,7 +652,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  };
 	}();
 	
-	var _events = __webpack_require__(7);
+	var _events = __webpack_require__(8);
 	
 	var _events2 = _interopRequireDefault(_events);
 	
@@ -796,6 +819,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 7 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var SCROLLING_PARENT_CLASS = exports.SCROLLING_PARENT_CLASS = 'ship-components--dialog-body';
+
+/***/ },
+/* 8 */
 /***/ function(module, exports) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -1103,7 +1137,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 8 */
+/* 9 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"columnGroup":"Dialog--columnGroup","column":"Dialog--column","controls":"Dialog--controls","container":"Dialog--container","formDialog":"Dialog--formDialog","title":"Dialog--title","body":"Dialog--body"};
+
+/***/ },
+/* 10 */
 /***/ function(module, exports) {
 
 	// shim for using process in browser
@@ -1289,7 +1330,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 9 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1310,7 +1351,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  };
 	}();
 	
-	var _Dialog2 = __webpack_require__(1);
+	var _Dialog2 = __webpack_require__(2);
 	
 	var _Dialog3 = _interopRequireDefault(_Dialog2);
 	
@@ -1379,7 +1420,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 10 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1400,7 +1441,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  };
 	}();
 	
-	var _Dialog2 = __webpack_require__(1);
+	var _Dialog2 = __webpack_require__(2);
 	
 	var _Dialog3 = _interopRequireDefault(_Dialog2);
 	
@@ -1464,7 +1505,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Confirm;
 
 /***/ },
-/* 11 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1474,6 +1515,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	
+	var _extends = Object.assign || function (target) {
+	  for (var i = 1; i < arguments.length; i++) {
+	    var source = arguments[i];for (var key in source) {
+	      if (Object.prototype.hasOwnProperty.call(source, key)) {
+	        target[key] = source[key];
+	      }
+	    }
+	  }return target;
+	};
 	
 	var _createClass = function () {
 	  function defineProperties(target, props) {
@@ -1485,9 +1536,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	  };
 	}();
 	
-	var _Dialog2 = __webpack_require__(1);
+	var _react = __webpack_require__(1);
 	
-	var _Dialog3 = _interopRequireDefault(_Dialog2);
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _Dialog = __webpack_require__(2);
+	
+	var _Dialog2 = _interopRequireDefault(_Dialog);
+	
+	var _Dialog3 = __webpack_require__(9);
+	
+	var _Dialog4 = _interopRequireDefault(_Dialog3);
 	
 	function _interopRequireDefault(obj) {
 	  return obj && obj.__esModule ? obj : { default: obj };
@@ -1515,8 +1574,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * This is mostly an alias for Dialog
 	 * @alias
 	 */
-	var FormDialog = function (_Dialog) {
-	  _inherits(FormDialog, _Dialog);
+	var FormDialog = function (_Component) {
+	  _inherits(FormDialog, _Component);
 	
 	  function FormDialog() {
 	    _classCallCheck(this, FormDialog);
@@ -1542,15 +1601,45 @@ return /******/ (function(modules) { // webpackBootstrap
 	        onClick: this.props.onConfirm
 	      }];
 	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(_Dialog2.default, _extends({}, this.props, {
+	        className: (this.props.className || '') + ' ' + _Dialog4.default.formDialog,
+	        buttons: this.getButtons()
+	      }));
+	    }
 	  }]);
 	
 	  return FormDialog;
-	}(_Dialog3.default);
+	}(_react.Component);
+	
+	/**
+	 * Defaults
+	 * @type {Object}
+	 */
 	
 	exports.default = FormDialog;
+	FormDialog.defaultProps = {
+	  confirm: 'Submit',
+	  cancel: 'Cancel',
+	  disableClose: false,
+	  disableConfirm: false
+	};
+	
+	/**
+	 * Type Checks
+	 * @type {Object}
+	 */
+	FormDialog.propTypes = {
+	  confirm: _react.PropTypes.string,
+	  cancel: _react.PropTypes.string,
+	  onConfirm: _react.PropTypes.func,
+	  onClose: _react.PropTypes.func
+	};
 
 /***/ },
-/* 12 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1571,7 +1660,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  };
 	}();
 	
-	var _react = __webpack_require__(2);
+	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
@@ -1579,7 +1668,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
-	var _Modals = __webpack_require__(16);
+	var _Modals = __webpack_require__(17);
 	
 	var _Modals2 = _interopRequireDefault(_Modals);
 	
@@ -1731,7 +1820,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 13 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process, global, setImmediate) {/* @preserve
@@ -7315,87 +7404,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	},{"./es5":13}]},{},[4])(4)
 	});                    ;if (typeof window !== 'undefined' && window !== null) {                               window.P = window.Promise;                                                     } else if (typeof self !== 'undefined' && self !== null) {                             self.P = self.Promise;                                                         }
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8), (function() { return this; }()), __webpack_require__(17).setImmediate))
-
-/***/ },
-/* 14 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"columnGroup":"Dialog--columnGroup","column":"Dialog--column","controls":"Dialog--controls","container":"Dialog--container"};
-
-/***/ },
-/* 15 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"overlay":"Modal--overlay","container":"Modal--container","body":"Modal--body","markdown":"Modal--markdown","tab-group--nav":"Modal--tab-group--nav","tab-section":"Modal--tab-section","close":"Modal--close","title":"Modal--title"};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10), (function() { return this; }()), __webpack_require__(19).setImmediate))
 
 /***/ },
 /* 16 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"inactive":"Modals--inactive","item":"Modals--item","container":"Modals--container"};
+	module.exports = {"overlay":"Modal--overlay","container":"Modal--container","body":"Modal--body","markdown":"Modal--markdown","tab-group--nav":"Modal--tab-group--nav","tab-section":"Modal--tab-section","close":"Modal--close","title":"Modal--title"};
 
 /***/ },
 /* 17 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	var apply = Function.prototype.apply;
-	
-	// DOM APIs, for completeness
-	
-	exports.setTimeout = function() {
-	  return new Timeout(apply.call(setTimeout, window, arguments), clearTimeout);
-	};
-	exports.setInterval = function() {
-	  return new Timeout(apply.call(setInterval, window, arguments), clearInterval);
-	};
-	exports.clearTimeout =
-	exports.clearInterval = function(timeout) {
-	  if (timeout) {
-	    timeout.close();
-	  }
-	};
-	
-	function Timeout(id, clearFn) {
-	  this._id = id;
-	  this._clearFn = clearFn;
-	}
-	Timeout.prototype.unref = Timeout.prototype.ref = function() {};
-	Timeout.prototype.close = function() {
-	  this._clearFn.call(window, this._id);
-	};
-	
-	// Does not start the time, just sets up the members needed.
-	exports.enroll = function(item, msecs) {
-	  clearTimeout(item._idleTimeoutId);
-	  item._idleTimeout = msecs;
-	};
-	
-	exports.unenroll = function(item) {
-	  clearTimeout(item._idleTimeoutId);
-	  item._idleTimeout = -1;
-	};
-	
-	exports._unrefActive = exports.active = function(item) {
-	  clearTimeout(item._idleTimeoutId);
-	
-	  var msecs = item._idleTimeout;
-	  if (msecs >= 0) {
-	    item._idleTimeoutId = setTimeout(function onTimeout() {
-	      if (item._onTimeout)
-	        item._onTimeout();
-	    }, msecs);
-	  }
-	};
-	
-	// setimmediate attaches itself to the global object
-	__webpack_require__(18);
-	exports.setImmediate = setImmediate;
-	exports.clearImmediate = clearImmediate;
-
+	// removed by extract-text-webpack-plugin
+	module.exports = {"inactive":"Modals--inactive","item":"Modals--item","container":"Modals--container"};
 
 /***/ },
 /* 18 */
@@ -7588,13 +7611,72 @@ return /******/ (function(modules) { // webpackBootstrap
 	    attachTo.clearImmediate = clearImmediate;
 	}(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(8)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(10)))
 
 /***/ },
 /* 19 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var apply = Function.prototype.apply;
+	
+	// DOM APIs, for completeness
+	
+	exports.setTimeout = function() {
+	  return new Timeout(apply.call(setTimeout, window, arguments), clearTimeout);
+	};
+	exports.setInterval = function() {
+	  return new Timeout(apply.call(setInterval, window, arguments), clearInterval);
+	};
+	exports.clearTimeout =
+	exports.clearInterval = function(timeout) {
+	  if (timeout) {
+	    timeout.close();
+	  }
+	};
+	
+	function Timeout(id, clearFn) {
+	  this._id = id;
+	  this._clearFn = clearFn;
+	}
+	Timeout.prototype.unref = Timeout.prototype.ref = function() {};
+	Timeout.prototype.close = function() {
+	  this._clearFn.call(window, this._id);
+	};
+	
+	// Does not start the time, just sets up the members needed.
+	exports.enroll = function(item, msecs) {
+	  clearTimeout(item._idleTimeoutId);
+	  item._idleTimeout = msecs;
+	};
+	
+	exports.unenroll = function(item) {
+	  clearTimeout(item._idleTimeoutId);
+	  item._idleTimeout = -1;
+	};
+	
+	exports._unrefActive = exports.active = function(item) {
+	  clearTimeout(item._idleTimeoutId);
+	
+	  var msecs = item._idleTimeout;
+	  if (msecs >= 0) {
+	    item._idleTimeoutId = setTimeout(function onTimeout() {
+	      if (item._onTimeout)
+	        item._onTimeout();
+	    }, msecs);
+	  }
+	};
+	
+	// setimmediate attaches itself to the global object
+	__webpack_require__(18);
+	exports.setImmediate = setImmediate;
+	exports.clearImmediate = clearImmediate;
+
+
+/***/ },
+/* 20 */
 /***/ function(module, exports) {
 
-	module.exports = __WEBPACK_EXTERNAL_MODULE_19__;
+	module.exports = __WEBPACK_EXTERNAL_MODULE_20__;
 
 /***/ }
 /******/ ])

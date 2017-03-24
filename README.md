@@ -140,6 +140,7 @@ Below are is a sample of how to setup the loaders:
 2. `npm test`
 
 ## History
+* 0.7.1 - Updates babel presets to latest.
 * 0.7.0 - Added new boolean prop closeOnLeave to allow dialog to close with window.onpopstate.
 * 0.6.1 - Fixes the Jest functionality to pass all tests
 * 0.6.0 - updates to FormDialog for scrolling inner content
@@ -160,7 +161,7 @@ Below are is a sample of how to setup the loaders:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016 SHIP
+Copyright (c) 2017 SHIP
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
