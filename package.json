@@ -1,6 +1,6 @@
 {
   "name": "ship-components-dialog",
-  "version": "0.7.2",
+  "version": "0.8.0",
   "description": "React material design modals",
   "main": "src/index.js",
   "scripts": {
@@ -42,9 +42,7 @@
   "dependencies": {
     "react": ">=15.0.0",
     "react-dom": ">=15.0.0",
-    "ship-components-buttons": "^0.1.4",
-    "ship-components-highlight-click": "^0.1.6",
-    "ship-components-icon": "^0.1.0",
+    "ship-components-buttons": "^0.4.0",
     "ship-components-outsideclick": "^0.1.1"
   },
   "devDependencies": {
@@ -80,7 +78,6 @@
     "postcss-simple-vars": "^3.0.0",
     "prop-types": "^15.6.0",
     "react-addons-css-transition-group": ">=15.0.0",
-    "react-addons-test-utils": ">=15.0.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.15.0"

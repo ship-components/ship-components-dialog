@@ -7,6 +7,7 @@
 
 // Modules
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import css from './Modal.css';
 
@@ -97,5 +98,5 @@ Modal.defaultProps = {
 };
 
 Modal.propTypes = {
-  onClose: React.PropTypes.func.isRequired
+  onClose: PropTypes.func.isRequired
 };

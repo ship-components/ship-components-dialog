@@ -140,7 +140,7 @@ Below are is a sample of how to setup the loaders:
 2. `npm test`
 
 ## History
-* 0.7.2 - Replace babel 6.x with babel-cli, add prop-types package, update babel to env from latest.
+* 0.8.0 - Replace babel 6.x with babel-cli, update babel to env from latest, prop-types, sub-component updates
 * 0.7.1 - Updates babel presets to latest.
 * 0.7.0 - Added new boolean prop closeOnLeave to allow dialog to close with window.onpopstate.
 * 0.6.1 - Fixes the Jest functionality to pass all tests
