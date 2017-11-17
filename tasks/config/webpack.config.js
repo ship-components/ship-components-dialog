@@ -20,9 +20,7 @@ module.exports = {
     react: 'React',
     'react-dom': true,
     'react-addons-css-transition-group': true,
-    'ship-components-highlight-click': true,
-    'ship-components-buttons': true,
-    'ship-components-icon': true
+    'ship-components-buttons': true
   },
 
   module: {
