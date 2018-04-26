@@ -1,6 +1,6 @@
 {
   "name": "ship-components-dialog",
-  "version": "0.8.0",
+  "version": "1.0.0",
   "description": "React material design modals",
   "main": "src/index.js",
   "scripts": {
@@ -23,6 +23,10 @@
       "email": "chris.orescan@sony.com"
     },
     {
+      "name": "Jared Boone",
+      "email": "jared.boone@sony.com"
+    },
+    {
       "name": "Sepand Assadi",
       "email": "sepand.assadi@sony.com"
     }
@@ -42,7 +46,7 @@
   "dependencies": {
     "react": ">=15.0.0",
     "react-dom": ">=15.0.0",
-    "ship-components-buttons": "^0.4.0",
+    "ship-components-buttons": "^1.0.2",
     "ship-components-outsideclick": "^0.1.1"
   },
   "devDependencies": {
@@ -77,7 +81,8 @@
     "postcss-nested": "^1.0.0",
     "postcss-simple-vars": "^3.0.0",
     "prop-types": "^15.6.0",
-    "react-addons-css-transition-group": ">=15.0.0",
+    "raf": "^3.4.0",
+    "react-transition-group": "^1.2.1",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.15.0"
@@ -96,6 +101,9 @@
       "<rootDir>/node_modules/react-dom",
       "<rootDir>/node_modules/react-addons-test-utils",
       "<rootDir>/node_modules/bluebird"
+    ],
+    "setupFiles": [
+      "raf/polyfill"
     ]
   },
   "babelJest": {

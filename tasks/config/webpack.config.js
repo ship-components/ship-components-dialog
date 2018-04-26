@@ -19,7 +19,7 @@ module.exports = {
     classnames: true,
     react: 'React',
     'react-dom': true,
-    'react-addons-css-transition-group': true,
+    'react-transition-group': true,
     'ship-components-buttons': true
   },
 
