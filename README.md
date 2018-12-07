@@ -140,6 +140,7 @@ Below are is a sample of how to setup the loaders:
 2. `npm test`
 
 ## History
+* 1.0.1 - Update to use postcss-calc 6
 * 1.0.0 - Switched to react-transition-group@1.x (for React 16)
 * 0.8.0 - Replace babel 6.x with babel-cli, update babel to env from latest, prop-types, sub-component updates
 * 0.7.1 - Updates babel presets to latest.
