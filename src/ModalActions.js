@@ -13,11 +13,6 @@ if (typeof Promise.config !== 'function') {
   throw new Error('Wrong version of bluebird');
 }
 
-// Enabled cancelling
-Promise.config({
-  cancellation: true
-});
-
 /**
  * Modal actions handle creating and closing Modals
  */
@@ -53,7 +48,7 @@ export class ModelActions extends EventEmitter {
         /**
          * Hijack callback so we can resolve the promise
          */
-        onConfirm(){
+        onConfirm() {
           // Pass it all through
           const args = Array.prototype.slice.call(arguments);
 
@@ -72,7 +67,7 @@ export class ModelActions extends EventEmitter {
         /**
          * Hijack onClose so we can inject our flux workflow into it
          */
-        onClose(){
+        onClose() {
           const args = Array.prototype.slice.call(arguments);
 
           if (typeof onClose === 'function') {
@@ -84,19 +79,11 @@ export class ModelActions extends EventEmitter {
           // We reject so we can complete the promise chain
           reject(new Error(ERROR_CANCEL));
         }
-      })
+      });
 
       // Let the world know
       actions.emit('open', component);
-    })
-    .catch(err => {
-      if (err.message === ERROR_CANCEL) {
-        // User cancelled, end the promise and call 'finally'
-        _promise.cancel();
-      } else {
-        throw err;
-      }
-    })
+    });
 
     return _promise;
   }
