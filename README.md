@@ -140,6 +140,7 @@ Below are is a sample of how to setup the loaders:
 2. `npm test`
 
 ## History
+* 1.0.3 - Reverted modal promise cancellation, fixed promise config overwrite errors instead
 * 1.0.2 - Removed unnecessary modal promise cancellation
 * 1.0.1 - Update to use postcss-calc 6
 * 1.0.0 - Switched to react-transition-group@1.x (for React 16)
