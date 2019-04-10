@@ -13,7 +13,7 @@ import css from './Modal.css';
 
 export default class Modal extends React.Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
     this.handleWindowKeyDown = this.handleWindowKeyDown.bind(this);
     this.handleClickBackground = this.handleClickBackground.bind(this);
@@ -77,16 +77,16 @@ export default class Modal extends React.Component {
       <div
         className={css.overlay}
         style={this.props.style}
-        onMouseDown={this.handleClickBackground}
+        onMouseDown={this.props.closeOnBlur ? this.handleClickBackground : null}
       >
-          <div
-            ref='container'
-            className={css.container}
-          >
-              <div className={classNames(css.body, this.props.className)}>
-                {this.props.children}
-              </div>
+        <div
+          ref='container'
+          className={css.container}
+        >
+          <div className={classNames(css.body, this.props.className)}>
+            {this.props.children}
           </div>
+        </div>
       </div>
     );
   }
@@ -94,7 +94,8 @@ export default class Modal extends React.Component {
 
 Modal.defaultProps = {
   title: null,
-  header: true
+  header: true,
+  closeOnBlur: true
 };
 
 Modal.propTypes = {
