@@ -1,5 +1,5 @@
 import EventEmitter from 'events';
-import Promise from 'bluebird';
+import Bluebird from 'bluebird';
 import React from 'react';
 
 /**
@@ -7,6 +7,11 @@ import React from 'react';
  * @type    {String}
  */
 const ERROR_CANCEL = 'ModalCanceled';
+
+/**
+ * Copy the bluebird library to keep configs separated
+ */
+const Promise = Bluebird.getNewLibraryCopy();
 
 // Ensure bluebird is the right version. config is only in the 3.0 API
 if (typeof Promise.config !== 'function') {
@@ -53,7 +58,7 @@ export class ModelActions extends EventEmitter {
         /**
          * Hijack callback so we can resolve the promise
          */
-        onConfirm(){
+        onConfirm() {
           // Pass it all through
           const args = Array.prototype.slice.call(arguments);
 
@@ -72,7 +77,7 @@ export class ModelActions extends EventEmitter {
         /**
          * Hijack onClose so we can inject our flux workflow into it
          */
-        onClose(){
+        onClose() {
           const args = Array.prototype.slice.call(arguments);
 
           if (typeof onClose === 'function') {
@@ -84,7 +89,7 @@ export class ModelActions extends EventEmitter {
           // We reject so we can complete the promise chain
           reject(new Error(ERROR_CANCEL));
         }
-      })
+      });
 
       // Let the world know
       actions.emit('open', component);
@@ -96,7 +101,7 @@ export class ModelActions extends EventEmitter {
       } else {
         throw err;
       }
-    })
+    });
 
     return _promise;
   }

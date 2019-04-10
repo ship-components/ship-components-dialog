@@ -1,6 +1,6 @@
 {
   "name": "ship-components-dialog",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "React material design modals",
   "main": "src/index.js",
   "scripts": {
@@ -74,7 +74,7 @@
     "invariant": "^2.2.1",
     "jest-cli": "^18.1.0",
     "jest-css-modules": "^1.1.0",
-    "postcss-calc": "^5.3.1",
+    "postcss-calc": "^6.0.2",
     "postcss-color-function": "^2.0.1",
     "postcss-color-hex-alpha": "^2.0.0",
     "postcss-loader": "^1.2.1",

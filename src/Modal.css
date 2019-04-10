@@ -16,7 +16,7 @@
 .container {
   background-color: #fff;
   border-radius: 2px;
-  margin: auto;
+  margin: 0;
   position: relative;
   z-index: 10001;
   box-sizing: border-box;
