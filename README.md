@@ -140,6 +140,7 @@ Below are is a sample of how to setup the loaders:
 2. `npm test`
 
 ## History
+* 1.0.6 - Added support for button styling via buttons prop
 * 1.0.5 - Added new boolean prop closeOnBlur - background click closes Modal
 * 1.0.4 - Fix for modal misalignment issue in IE
 * 1.0.3 - Reverted modal promise cancellation, fixed promise config overwrite errors instead
