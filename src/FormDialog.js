@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Dialog from './Dialog';
 import css from './Dialog.css';
@@ -12,7 +12,7 @@ export default class FormDialog extends Component {
    * Which buttons to shallow
    * @return {Array<Object>}
    */
-  getButtons() {
+  getDefaultButtons() {
     return [
       {
         label: this.props.cancel,
@@ -27,11 +27,15 @@ export default class FormDialog extends Component {
     ];
   }
 
+  getButtons() {
+    return this.props.buttons || this.getDefaultButtons();
+  }
+
   render() {
     return (
       <Dialog
         {...this.props}
-        className={`${this.props.className||''} ${css.formDialog}`}
+        className={`${this.props.className || ''} ${css.formDialog}`}
         buttons={this.getButtons()}
       />
     )

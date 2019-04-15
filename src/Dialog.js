@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Modal from './Modal';
 import { Button, ButtonGroup } from 'ship-components-buttons';
 import css from './Dialog.css';
-import {SCROLLING_PARENT_CLASS} from './constants';
+import { SCROLLING_PARENT_CLASS } from './constants';
 
 export default class Dialog extends Component {
 
@@ -38,7 +38,7 @@ export default class Dialog extends Component {
       >
         {this.props.name ?
           <h1 className={css.title}>{this.props.name}</h1>
-        : null}
+          : null}
         <div className={classNames(css.body, SCROLLING_PARENT_CLASS)}>
           {this.props.message || this.props.children}
         </div>
@@ -52,8 +52,9 @@ export default class Dialog extends Component {
                 key={btn.label}
                 disabled={btn.disabled === true}
                 onClick={btn.onClick}
+                className={`${btn.className || ''}`}
               >
-                  {btn.label}
+                {btn.label}
               </Button>
             );
           })}
