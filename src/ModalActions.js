@@ -69,7 +69,7 @@ export class ModelActions extends EventEmitter {
               // If it's false, don't close
               return;
             } else if (typeof result.then === 'function') {
-              result.tap((result) => {
+              result.tap(() => {
                 // Let the store know to clean it up
                 actions.emit('close', component);
                 // Finish promise
