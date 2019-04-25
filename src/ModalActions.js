@@ -65,7 +65,7 @@ export class ModelActions extends EventEmitter {
           // Call original
           if (typeof onConfirm === 'function') {
             const callback = onConfirm.apply(this, args);
-            Promise.resolve(callback)
+            return Promise.resolve(callback)
               .then(result => {
                 // If it's false, don't close
                 if (result === false) {
@@ -79,7 +79,6 @@ export class ModelActions extends EventEmitter {
               .catch(() => {
                 // Do nothing.
               });
-            return;
           }
 
           // Let the store know to clean it up
