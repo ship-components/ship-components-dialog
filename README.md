@@ -140,7 +140,12 @@ Below are is a sample of how to setup the loaders:
 2. `npm test`
 
 ## History
-* 1.0.5 - Fix overridden styles for h1 and h2 elements in modal body
+* 1.0.10 - Fix overridden styles for h1 and h2 elements in modal body
+* 1.0.9 - Open modal action will now forward promises to handler methods
+* 1.0.8 - Fixed issue where non-promise modal action callbacks may have been broken
+* 1.0.7 - Added promise support to modal action confirm callback
+* 1.0.6 - Added support for button styling via buttons prop
+* 1.0.5 - Added new boolean prop closeOnBlur - background click closes Modal
 * 1.0.4 - Fix for modal misalignment issue in IE
 * 1.0.3 - Reverted modal promise cancellation, fixed promise config overwrite errors instead
 * 1.0.2 - Removed unnecessary modal promise cancellation
@@ -151,7 +156,6 @@ Below are is a sample of how to setup the loaders:
 * 0.7.0 - Added new boolean prop closeOnLeave to allow dialog to close with window.onpopstate.
 * 0.6.1 - Fixes the Jest functionality to pass all tests
 * 0.6.0 - updates to FormDialog for scrolling inner content
-* 0.4.1 - css tweaks to fix scrolling and very tall modals
 * 0.4.1 - css tweaks to fix scrolling and very tall modals
 * 0.4.0 - Added option to cancel confirm by having onConfirm return false
 * 0.3.0 - Removed header close button; and added dialog type FormDialog
