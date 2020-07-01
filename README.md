@@ -140,6 +140,7 @@ Below are is a sample of how to setup the loaders:
 2. `npm test`
 
 ## History
+* 1.0.10 - Fix overridden styles for h1 and h2 elements in modal body
 * 1.0.9 - Open modal action will now forward promises to handler methods
 * 1.0.8 - Fixed issue where non-promise modal action callbacks may have been broken
 * 1.0.7 - Added promise support to modal action confirm callback
